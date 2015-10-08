@@ -1,0 +1,18 @@
+{
+  "index": {
+    "title": "Test site",
+    "description": "Test site",
+    "keywords": "site testing",
+    "template": "main5.tpl",
+    "menu": {
+      "name": "Main",
+      "url": "index"
+    }
+  },
+  "notFound": {
+    "title": "Test site - 404",
+    "description": "Test site",
+    "keywords": "site testing",
+    "template": "main5.tpl"
+  }
+}
