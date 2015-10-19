@@ -1,0 +1,24 @@
+{
+  "name": "jkovacs/php-legs",
+  "description": "Command and Signal based MVC+S framework",
+  "version": "0.9.1",
+  "minimum-stability": "alpha",
+  "license": "GNU General Public License",
+  "authors": [
+    {
+      "name": "Jan Kovács",
+      "email": "jan.v.kovacs@gmail.com"
+    }
+  ],
+  "require": {
+    "php":">=5.5",
+    "smarty/smarty": "v3.1.27",
+    "php-legs":"dev-master"
+  },
+  "repositories": [
+    {
+      "type":"git",
+      "url":"https://github.com/jankovacs/php-legs.git"
+    }
+  ]
+}
