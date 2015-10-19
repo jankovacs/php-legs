@@ -1,8 +1,8 @@
 {
-  "name": "php-legs",
+  "name": "jankovacs/php-legs",
   "description": "Command and Signal based MVC+S framework",
   "version": "0.9.1",
-  "minimum-stability": "alpha",
+  "minimum-stability": "dev",
   "license": "GNU General Public License",
   "authors": [
     {
