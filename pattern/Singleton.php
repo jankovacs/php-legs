@@ -8,9 +8,17 @@
  * Date: 2015.04.03.
  * Time: 10:40
  */
+
+namespace pattern;
+
 class Singleton
 {
     private static $instances = [ ];
+
+    final public static function registerIntsance( $className, $instance )
+    {
+        Singleton::$instances[ $className ] = $instance;
+    }
 
     final public static function getInstance( $className )
     {

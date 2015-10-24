@@ -6,6 +6,11 @@
  * Date: 2015.04.03.
  * Time: 10:36
  */
+
+namespace mapper;
+
+use mapper\vo\CommandMapVO;
+
 class CommandMapper implements IMapper
 {
     private $mappings;

@@ -1,4 +1,7 @@
 <?php
+namespace base\config;
+
+use mapper\factory\MapperFactory;
 
 class BaseMappingConfigurator implements IConfig
 {

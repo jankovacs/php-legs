@@ -6,6 +6,8 @@
  * Date: 2015.04.03.
  * Time: 9:54
  */
+namespace base\signal;
+
 class Signal implements ISignal
 {
     private $handlers;

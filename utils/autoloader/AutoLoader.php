@@ -13,12 +13,13 @@ class AutoLoader
     private $slash;
     const WIN_SLASH = '\\';
     const LINUX_SLASH = '/';
-    const CLASS_MAPPING_FILE = 'autoloader.classes.include.php';
+    const CLASS_MAPPING_FILE = 'autoloader.classes.include';
+    const FILE_EXTENSION = '.php';
 
     public function __construct()
     {
         $this->setOSDependentSlash();
-        $this->includeFile = __DIR__ . $this->slash . self::CLASS_MAPPING_FILE;
+        $this->includeFile = __DIR__ . $this->slash . self::CLASS_MAPPING_FILE . self::FILE_EXTENSION;
         $this->getStoredClassMapping();
         spl_autoload_register( array( $this, 'loader' ) );
     }
@@ -41,7 +42,20 @@ class AutoLoader
 
     private function getFilePath( $className )
     {
-        if ( !isset( $this->classMaps[ $className ] ) )
+        $nameSpaceSplitted = explode( "\\", $className );
+        $isUnderNameSpace = boolval( count($nameSpaceSplitted) > 1 );
+
+        if ( $isUnderNameSpace )
+        {
+            $relativeClassPath = __DIR__. $this->slash.
+                                    '..'.$this->slash.
+                                    '..'.$this->slash.
+                                    implode( $this->slash, $nameSpaceSplitted ).
+                                    self::FILE_EXTENSION;
+
+            $classPath = realpath( $relativeClassPath );
+        }
+        else if ( !isset( $this->classMaps[ $className ] ) )
         {
             $classPath = $this->searchForClassPath( $className );
             $this->saveClassMapping( $className, $classPath );

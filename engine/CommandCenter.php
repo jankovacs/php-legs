@@ -6,6 +6,12 @@
  * Date: 2015.04.04.
  * Time: 13:21
  */
+
+namespace engine;
+
+use base\config\IConfig;
+use pattern\Singleton;
+
 class CommandCenter
 {
     private $mappings;

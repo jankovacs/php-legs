@@ -6,6 +6,10 @@
  * Date: 2015.04.05.
  * Time: 11:45
  */
+
+namespace base\command;
+use pattern\Singleton;
+
 class BaseMacroCommand
 {
 

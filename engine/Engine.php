@@ -6,6 +6,14 @@
  * Date: 2015.04.04.
  * Time: 13:05
  */
+
+namespace engine;
+
+use base\config\IConfig;
+use engine\CommandCenter;
+use engine\RoutingCenter;
+use pattern\Singleton;
+
 class Engine
 {
     private $commandCenter;
@@ -28,9 +36,10 @@ class Engine
         $this->routingCenter = new RoutingCenter( $config, $routing );
     }
 
-    public function setSmarty()
+    public function addSmarty( $instance )
     {
-        $this->smarty = Singleton::getInstance( Smarty::class );
+        Singleton::registerIntsance( "Smarty", $instance );
+        $this->smarty = Singleton::getInstance( "Smarty" );
         $this->smarty->template_dir = __DIR__ . '/../../templates/';
         $this->smarty->compile_dir = __DIR__ . '/../../templates_c/';
         $this->smarty->cache_dir = __DIR__ . '/../../smarty_cache/';

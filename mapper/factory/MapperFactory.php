@@ -1,5 +1,11 @@
 <?php
 
+namespace mapper\factory;
+
+use pattern\Singleton;
+use mapper\CommandMapper;
+use mapper\RoutingMapper;
+
 class MapperFactory
 {
     const COMMAND_MAPPER = 'commandMapper';

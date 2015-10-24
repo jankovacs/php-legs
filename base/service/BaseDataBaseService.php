@@ -1,5 +1,7 @@
 <?php
 
+namespace base\service;
+
 class BaseDataBaseService
 {
     protected $db;

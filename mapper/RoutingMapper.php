@@ -6,6 +6,11 @@
  * Date: 2015.04.03.
  * Time: 10:36
  */
+
+namespace mapper;
+
+use mapper\vo\RoutingMapVO;
+
 class RoutingMapper implements IMapper
 {
     private $mappings;
