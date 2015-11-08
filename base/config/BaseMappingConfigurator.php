@@ -1,16 +1,24 @@
 <?php
-namespace base\config;
+namespace phplegs\base\config;
 
-use mapper\factory\MapperFactory;
+use injector\api\IInjector;
+use phplegs\mapper\factory\MapperFactory;
 
 class BaseMappingConfigurator implements IConfig
 {
+    /**
+     * @var IMapper
+     */
     protected $mapper;
+
+    /**
+     * @var IInjector
+     */
+    protected $injector;
 
     public function __construct()
     {
         $this->mapper = MapperFactory::getMapper( $this->getMapperType() );
-        $this->setMappings();
     }
 
     protected function setMappings()
@@ -23,8 +31,20 @@ class BaseMappingConfigurator implements IConfig
         return '';
     }
 
+    /**
+     * @return mixed
+     */
     public function getMappings()
     {
+        $this->setMappings();
         return $this->mapper->getMappings();
+    }
+
+    /**
+     * @param IInjector $injector
+     */
+    public function setInjector(IInjector $injector)
+    {
+        $this->injector = $injector;
     }
 }

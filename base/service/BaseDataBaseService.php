@@ -1,6 +1,6 @@
 <?php
 
-namespace base\service;
+namespace phplegs\base\service;
 
 class BaseDataBaseService
 {

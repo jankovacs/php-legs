@@ -1,12 +1,7 @@
 <?php
 
-/**
- * Created by PhpStorm.
- * User: jan
- * Date: 2015.04.03.
- * Time: 9:54
- */
-namespace base\signal;
+namespace phplegs\base\signal;
+use phplegs\base\signal\ISignal;
 
 class Signal implements ISignal
 {

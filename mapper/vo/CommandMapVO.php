@@ -1,13 +1,6 @@
 <?php
 
-/**
- * Created by PhpStorm.
- * User: jan
- * Date: 2015.04.04.
- * Time: 11:45
- */
-
-namespace mapper\vo;
+namespace phplegs\mapper\vo;
 
 class CommandMapVO
 {

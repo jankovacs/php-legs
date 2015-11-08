@@ -1,24 +1,18 @@
 <?php
 
-/**
- * Created by PhpStorm.
- * User: jan
- * Date: 2015.04.04.
- * Time: 13:21
- */
+namespace phplegs\engine;
 
-namespace engine;
-
-use base\config\IConfig;
-use pattern\Singleton;
+use phplegs\base\config\IConfig;
 
 class RoutingCenter
 {
     private $mappings;
     private $routing;
+    private $injector;
 
-    public function __construct( $config, $routing )
+    public function __construct( $config, $routing, $injector )
     {
+        $this->injector = $injector;
         $this->routing = $routing;
         $this->getMappings( $config );
         $this->switchOnIndexPage();
@@ -68,7 +62,8 @@ class RoutingCenter
 
     private function dispatchActualSignal( $signalName, $payload )
     {
-        $actualSignal = Singleton::getInstance( $signalName );
+        $this->injector->map( $signalName )->asSingleton();
+        $actualSignal = $this->injector->getInstance( $signalName );
         $actualSignal->dispatch( $payload );
     }
 }

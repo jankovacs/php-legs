@@ -1,6 +1,6 @@
 <?php
 
-namespace mapper;
+namespace phplegs\mapper;
 
 interface IMapper {
     function map( $from, $to );

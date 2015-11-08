@@ -1,17 +1,15 @@
 <?php
 
-/**
- * Created by PhpStorm.
- * User: jan
- * Date: 2015.04.05.
- * Time: 11:45
- */
-
-namespace base\command;
-use pattern\Singleton;
+namespace phplegs\base\command;
 
 class BaseMacroCommand
 {
+
+    /**
+     * @Inject
+     * @var injector\api\IInjector
+     */
+    public $injector;
 
     private $commands;
 
@@ -26,7 +24,8 @@ class BaseMacroCommand
 
         foreach ( $this->commands as $commandName )
         {
-            $actualCommand = Singleton::getInstance( $commandName );
+            $this->injector->map( $commandName );
+            $actualCommand = $this->injector->getInstance( $commandName );
             $actualCommand->execute( $payload );
             $actualCommand = null;
         }

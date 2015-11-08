@@ -1,23 +1,22 @@
 <?php
 
-/**
- * Created by PhpStorm.
- * User: jan
- * Date: 2015.04.04.
- * Time: 13:21
- */
+namespace phplegs\engine;
 
-namespace engine;
-
-use base\config\IConfig;
-use pattern\Singleton;
+use phplegs\base\config\IConfig;
+use injector\api\IInjector;
 
 class CommandCenter
 {
     private $mappings;
+    /**
+     * @var IInjector
+     */
+    private $injector;
 
-    public function __construct( IConfig $config )
+    public function __construct( IConfig $config, IInjector $injector )
     {
+        $this->injector = $injector;
+        $config->setInjector( $this->injector );
         $this->getMappings( $config );
         $this->registerSignals();
     }
@@ -31,7 +30,8 @@ class CommandCenter
     {
         foreach ( $this->mappings as $commandMapVO )
         {
-            $actualSignal = Singleton::getInstance( $commandMapVO->signal );
+            $this->injector->map( $commandMapVO->signal )->asSingleton();
+            $actualSignal = $this->injector->getInstance( $commandMapVO->signal );
             $actualSignal->add( $this, 'runCommand' );
         }
     }
@@ -53,7 +53,8 @@ class CommandCenter
     {
         foreach ( $commands as $commandClass )
         {
-            $actualCommand = new $commandClass;
+            $this->injector->map( $commandClass );
+            $actualCommand = $this->injector->getInstance( $commandClass );
             call_user_func( [ $actualCommand, 'execute' ], $payload );
             unset( $actualCommand );
         }

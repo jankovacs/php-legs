@@ -1,14 +1,11 @@
 <?php
 
-/**
- * Created by PhpStorm.
- * User: jan
- * Date: 2015.04.04.
- * Time: 13:13
- */
-namespace base\config;
+namespace phplegs\base\config;
+
+use injector\api\IInjector;
 
 interface IConfig
 {
+    function setInjector(IInjector $injector);
     function getMappings();
 } 

@@ -1,15 +1,8 @@
 <?php
 
-/**
- * Created by PhpStorm.
- * User: jan
- * Date: 2015.04.03.
- * Time: 10:36
- */
+namespace phplegs\mapper;
 
-namespace mapper;
-
-use mapper\vo\CommandMapVO;
+use phplegs\mapper\vo\CommandMapVO;
 
 class CommandMapper implements IMapper
 {

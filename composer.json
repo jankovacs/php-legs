@@ -9,8 +9,21 @@
       "email": "jan.v.kovacs@gmail.com"
     }
   ],
+  "repositories": [
+    {
+      "type":"git",
+      "url":"https://github.com/jankovacs/injector.git"
+    }
+  ],
+
   "require": {
     "php":">=5.5",
+	"jankovacs/injector":"*",
     "smarty/smarty": "v3.1.27"
+  },
+  "autoload": {
+        "psr-0": {
+            "phplegs": "/",
+        }
   }
 }

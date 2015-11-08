@@ -9,7 +9,7 @@
  * Time: 10:40
  */
 
-namespace pattern;
+namespace phplegs\pattern;
 
 class Singleton
 {

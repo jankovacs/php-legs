@@ -1,10 +1,10 @@
 <?php
 
-namespace mapper\factory;
+namespace phplegs\mapper\factory;
 
-use pattern\Singleton;
-use mapper\CommandMapper;
-use mapper\RoutingMapper;
+use phplegs\pattern\Singleton;
+use phplegs\mapper\CommandMapper;
+use phplegs\mapper\RoutingMapper;
 
 class MapperFactory
 {
