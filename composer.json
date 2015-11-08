@@ -18,11 +18,11 @@
 
   "require": {
     "php":">=5.5",
-	"jankovacs/injector":"*",
+	"jankovacs/injector":"dev-master",
     "smarty/smarty": "v3.1.27"
   },
   "autoload": {
-        "psr-0": {
+        "psr-4": {
             "phplegs": "/"
         }
   }
